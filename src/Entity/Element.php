@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
+// On a créé le "groups" pour pouvoir prendre que certains éléments dans le controller afin de les serialiser en .json et éviter une boucle en prenant '$items'
+
 /**
  * @ORM\Entity(repositoryClass=ElementRepository::class)
  */
@@ -17,18 +19,19 @@ class Element
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("element:read")
+     * @Groups("element:read)")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("element:read")
+     * @Groups("element:read)")
      */
     private $title;
 
     /**
      * @ORM\OneToMany(targetEntity=Item::class, mappedBy="element")
+     * @Groups("element:read)")
      */
     private $Items;
 
