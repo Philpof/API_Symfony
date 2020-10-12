@@ -15,13 +15,13 @@ class Item
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("element:read)")
+     * @Groups("element:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("element:read)")
+     * @Groups("element:read")
      */
     private $title;
 

@@ -5,10 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ElementRepository;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
+// use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+// use Symfony\Component\Serializer\SerializerInterface;
+// use Symfony\Component\HttpFoundation\Response;
+// use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ApiElementController extends AbstractController
 {
@@ -23,12 +23,12 @@ class ApiElementController extends AbstractController
     /**
      * @Route("/api/element", name="api_element_index", methods={"GET"})
      */
-    public function index(ElementRepository $elementRepository, NormalizerInterface $normalizer)
+    public function index(ElementRepository $elementRepository)
     {
 
 // A - Méthode décomposée :
         // On récupère tous les éléments dans la variable '$elements', ce qui va nous servir après (Dans le A uniquement):
-            $elements = $elementRepository->findAll();
+            // $elements = $elementRepository->findAll();
 
     // a - Normalizer Vs. Serializer :
         // 1ère version : on peut utiliser "NormalizerInterface $normalizer" en paramètre  de "index" (ligne 25) puis les 2 lignes ci-dessous pour normaliser puis encoder en .json
@@ -63,4 +63,6 @@ class ApiElementController extends AbstractController
 
         return $this->json($elementRepository->findAll(), 200, [], ['groups' => 'element:read']);
     }
+
+
 }
