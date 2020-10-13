@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 // On a créé le "groups" pour pouvoir prendre que certains éléments dans le controller afin de les serialiser en .json et éviter une boucle en prenant '$items'
 
@@ -20,12 +21,15 @@ class Element
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * @Groups("element:read")
+     * @Groups("item:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("element:read")
+     * @Groups("item:read")
+     * @Assert\NotBlank(message="Le titre est obligatoire")
      */
     private $title;
 

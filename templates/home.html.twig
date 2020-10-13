@@ -7,7 +7,38 @@
 
 
 {% block body %}
-    <h1>API avec Symfony<h1/>
+
+<style>
+    .home { margin: auto; max-width: 75%; width: 100%; font: 18px/1.5 sans-serif; }
+    .home h3 { text-decoration: underline; }
+    .home code { background: #F5F5F5; padding: 2px 6px; }
+    .home h4 { font-style: italic; font-weight: lighter; }
+    .route { background: grey !important; color: white; padding: 15px 30px !important; }
+</style>
+
+<div class="home">
+
+    <h1>ZombiGo - API<h1/>
+    <h4>- API créée avec Symfony dans le cadre d'un projet ACS avec REACT NATIVE -</h4>
     <hr>
-    <p>Projet ACS avec REACT NATIVE</p>
+    <h3>Introduction</h3>
+    <p>This is the documentation for Version 1 (V1) of the ZombiGo API, september 2020.</p>
+    <h3>Response Formats</h3>
+    <p>The default response format is JSON.</p>
+    <h3>Authentication</h3>
+    <p>The API dont' requires an access key for all "GET" routes.</p>
+    <h3>All Routes</h3>
+    <p>All routes need to be prefixed with <code>https://philippep.promo-41.codeur.online/ZombiGo/v1/</code></p>
+    <h3>Element Routes</h3>
+    <code class="route">GET /element</code>
+    <p>Returns all element with the following parameters :</p>
+    <ul>
+      <li><code>id</code></li>
+      <li><code>title</code></li>
+      <li><code>item</code></li>
+    </ul>
+    <code class="route">GET /element/{elementId}</code>
+    <p>Returns element with matching element id.</p>
+
+</div>
 {% endblock %}
