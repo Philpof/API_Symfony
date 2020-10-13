@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class ApiItemController extends AbstractController
 {
     /**
-     * @Route("ZombiGo/v1/item", name="api_item_index", methods={"GET"})
+     * @Route("api/v1/item", name="api_item_index", methods={"GET"})
      */
     public function index(ItemRepository $itemRepository)
     {
@@ -23,7 +23,7 @@ class ApiItemController extends AbstractController
   }
 
   /**
-   * @Route("ZombiGo/v1/item/{id}", name="api_item_show", methods={"GET"})
+   * @Route("api/v1/item/{id}", name="api_item_show", methods={"GET"})
    */
   public function show($id, ItemRepository $itemRepository)
   {
@@ -31,7 +31,7 @@ class ApiItemController extends AbstractController
   }
 
   /**
-   * @Route("ZombiGo/v1/item", name="api_item_store", methods={"POST"})
+   * @Route("api/v1/item", name="api_item_store", methods={"POST"})
    */
   public function store(Request $request, SerializerInterface $serializer, EntityManagerInterface $emi, ValidatorInterface $validator)
   {

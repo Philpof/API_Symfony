@@ -37,6 +37,13 @@ class Item
      */
     private $element;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("element:read")
+     * @Groups("item:read")
+     */
+    private $icon;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,6 +69,18 @@ class Item
     public function setElement(?Element $element): self
     {
         $this->element = $element;
+
+        return $this;
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(?string $icon): self
+    {
+        $this->icon = $icon;
 
         return $this;
     }

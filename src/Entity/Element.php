@@ -39,6 +39,13 @@ class Element
      */
     private $Items;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("element:read")
+     * @Groups("item:read")
+     */
+    private $icon;
+
     public function __construct()
     {
         $this->Items = new ArrayCollection();
@@ -88,6 +95,18 @@ class Element
                 $item->setElement(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(?string $icon): self
+    {
+        $this->icon = $icon;
 
         return $this;
     }

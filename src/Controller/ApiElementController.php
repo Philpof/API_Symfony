@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class ApiElementController extends AbstractController
 {
     /**
-     * @Route("ZombiGo/v1/", name="home")
+     * @Route("api/v1/", name="home")
      */
     public function home()
     {
@@ -26,7 +26,20 @@ class ApiElementController extends AbstractController
     }
 
     /**
-     * @Route("ZombiGo/v1/element", name="api_element_index", methods={"GET"})
+     * @Route("element/{id}", name="api_element_icon", methods={"GET"})
+     * @Route("v1/element{id}", name="api_element_icon", methods={"GET"})
+     */
+    public function icon($id, ElementRepository $elementRepository)
+    {
+      $repo = $this->getDoctrine()->getRepository(Element::class);
+      $element = $repo->find($id);
+      return $this->render('api_element/index.html.twig', [
+        'element' => $element
+      ]);
+    }
+
+    /**
+     * @Route("api/v1/element", name="api_element_index", methods={"GET"})
      */
     public function index(ElementRepository $elementRepository)
     {
@@ -69,7 +82,7 @@ class ApiElementController extends AbstractController
     }
 
     /**
-     * @Route("ZombiGo/v1/element/{id}", name="api_element_show", methods={"GET"})
+     * @Route("api/v1/element/{id}", name="api_element_show", methods={"GET"})
      */
     public function show($id, ElementRepository $elementRepository)
     {
@@ -77,7 +90,7 @@ class ApiElementController extends AbstractController
     }
 
     /**
-     * @Route("ZombiGo/v1/element", name="api_element_store", methods={"POST"})
+     * @Route("api/v1/element", name="api_element_store", methods={"POST"})
      */
     public function store(Request $request, SerializerInterface $serializer, EntityManagerInterface $emi, ValidatorInterface $validator)
     {

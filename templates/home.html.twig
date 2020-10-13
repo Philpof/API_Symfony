@@ -13,6 +13,7 @@
     .home h3 { text-decoration: underline; }
     .home code { background: #F5F5F5; padding: 2px 6px; }
     .home h4 { font-style: italic; font-weight: lighter; }
+    .home ul { padding-bottom: 40px; }
     .route { background: grey !important; color: white; padding: 15px 30px !important; }
 </style>
 
@@ -29,16 +30,33 @@
     <p>The API dont' requires an access key for all "GET" routes.</p>
     <h3>All Routes</h3>
     <p>All routes need to be prefixed with <code>https://philippep.promo-41.codeur.online/ZombiGo/v1/</code></p>
-    <h3>Element Routes</h3>
-    <code class="route">GET /element</code>
-    <p>Returns all element with the following parameters :</p>
-    <ul>
-      <li><code>id</code></li>
-      <li><code>title</code></li>
-      <li><code>item</code></li>
-    </ul>
-    <code class="route">GET /element/{elementId}</code>
-    <p>Returns element with matching element id.</p>
+    <ol>
+      <li>
+        <h3>Element Routes</h3>
+        <code class="route">GET /element</code>
+        <p>Returns all element with the following informations :</p>
+        <ul>
+          <li><code>id</code></li>
+          <li><code>title</code></li>
+          <li><code>item</code></li>
+        </ul>
+        <code class="route">GET /element/{elementId}</code>
+        <p>Returns elements with matching element id.</p>
+      </li>
+      <li>
+        <h3>Item Routes</h3>
+        <code class="route">GET /item</code>
+        <p>Returns all items with the following informations :</p>
+        <ul>
+          <li><code>id</code></li>
+          <li><code>title</code></li>
+          <li><code>element</code></li>
+        </ul>
+        <code class="route">GET /item/itemId}</code>
+        <p>Returns item with matching item id.</p>
+      </li>
+    </ol>
+
 
 </div>
 {% endblock %}
