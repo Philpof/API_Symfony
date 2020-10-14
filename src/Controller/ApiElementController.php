@@ -18,16 +18,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class ApiElementController extends AbstractController
 {
     /**
-     * @Route("api/v1/", name="home")
-     */
-    public function home()
-    {
-        return $this->render('home.html.twig');
-    }
-
-    /**
-     * @Route("element/{id}", name="api_element_icon", methods={"GET"})
-     * @Route("v1/element{id}", name="api_element_icon", methods={"GET"})
+     * @Route("/api/v1/icon/{id}", name="api_element_icon", methods={"GET"})
      */
     public function icon($id, ElementRepository $elementRepository)
     {

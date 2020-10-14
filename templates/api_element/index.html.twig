@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}API - Element{% endblock %}
+{% block title %}API - Icon - Element{% endblock %}
 
 {% block body %}
 
-  <img src="../images{{ element.getIcon }}" alt="">
+  <img src="../../../images{{ element.getIcon }}" alt=""> <!-- le "src" est valide et fonctionne en l'état ->
 
 {% endblock %}
