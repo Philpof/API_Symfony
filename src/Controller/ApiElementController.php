@@ -24,7 +24,7 @@ class ApiElementController extends AbstractController
     {
       $repo = $this->getDoctrine()->getRepository(Element::class);
       $element = $repo->find($id);
-      return $this->render('api_element/index.html.twig', [
+      return $this->render('api_element/icon.html.twig', [
         'element' => $element
       ]);
     }
@@ -73,14 +73,6 @@ class ApiElementController extends AbstractController
     }
 
     /**
-     * @Route("api/v1/element/{id}", name="api_element_show", methods={"GET"})
-     */
-    public function show($id, ElementRepository $elementRepository)
-    {
-        return $this->json($elementRepository->find($id), 200, [], ['groups' => 'element:read']);
-    }
-
-    /**
      * @Route("api/v1/element", name="api_element_store", methods={"POST"})
      */
     public function store(Request $request, SerializerInterface $serializer, EntityManagerInterface $emi, ValidatorInterface $validator)
@@ -108,4 +100,25 @@ class ApiElementController extends AbstractController
         ], 400);
       }
     }
+
+    /**
+     * @Route("api/v1/element/{id}", name="api_element_show", methods={"GET"})
+     */
+    public function showById($id, ElementRepository $elementRepository)
+    {
+        return $this->json($elementRepository->find($id), 200, [], ['groups' => 'element:read']);
+    }
+
+    /**
+     * @Route("api/v1/element/{id}/item", name="api_element_item", methods={"GET"})
+     */
+    public function showItem($id, ElementRepository $elementRepository)
+    {
+        $repo = $this->getDoctrine()->getRepository(Element::class);
+        $element = $repo->find($id);
+        $items = $element->getItems();
+
+        return $this->json($items, 200, [], ['groups' => 'element:read']);
+    }
+
 }

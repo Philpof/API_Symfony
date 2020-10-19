@@ -29,7 +29,7 @@
     <h3>Authentication</h3>
     <p>The API dont' requires an access key for all "GET" routes.</p>
     <h3>All Routes</h3>
-    <p>All routes need to be prefixed with <code>https://philippep.promo-41.codeur.online/ZombiGo/v1/</code></p>
+    <p>All routes need to be prefixed with <code>https://philippep.promo-41.codeur.online/api/v1/</code></p>
     <ol>
       <li>
         <h3>Element Routes</h3>
@@ -42,6 +42,10 @@
         </ul>
         <code class="route">GET /element/{elementId}</code>
         <p>Returns elements with matching element id.</p>
+        <br>
+        <code class="route">GET /element/{elementId}/item</code>
+        <p>Returns all the items that are linked to the selected element by its id.</p>
+        <br>
       </li>
       <li>
         <h3>Item Routes</h3>

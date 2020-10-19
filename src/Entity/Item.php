@@ -6,6 +6,7 @@ use App\Repository\ItemRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+// use ApiPlatform\Core\Annotation\ApiResource; // use ApiPlatform\Core\Annotation\ApiResource; // I don't want to use API PLATEFORME for this API
 
 /**
  * @ORM\Entity(repositoryClass=ItemRepository::class)
