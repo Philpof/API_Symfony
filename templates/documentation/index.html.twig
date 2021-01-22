@@ -19,45 +19,50 @@
 
 <div class="home">
 
-    <h1>ZombiGo - API<h1/>
-    <h4>- API créée avec Symfony dans le cadre d'un projet ACS avec REACT NATIVE -</h4>
+    <h1>ZombieGO - API<h1/>
+    <h4>- API created with Symfony as part of an ACS project with REACT NATIVE : ZombieGO -</h4>
     <hr>
     <h3>Introduction</h3>
-    <p>This is the documentation for Version 1 (V1) of the ZombiGo API, september 2020.</p>
+    <p>This is the documentation for Version 1 (V1) of the API, september 2020.</p>
     <h3>Response Formats</h3>
     <p>The default response format is JSON.</p>
     <h3>Authentication</h3>
-    <p>The API dont' requires an access key for all "GET" routes.</p>
+    <p>The API don't requires an access key for all "GET" routes.</p>
     <h3>All Routes</h3>
-    <p>All routes need to be prefixed with <code>https://philippep.promo-41.codeur.online/api/v1/</code></p>
+    <p>All routes need to be prefixed with <code>https://zombieapi.promo-41.codeur.online</code></p>
     <ol>
       <li>
         <h3>Element Routes</h3>
-        <code class="route">GET /element</code>
+        <code class="route">GET /api/v1/element</code>
         <p>Returns all element with the following informations :</p>
         <ul>
           <li><code>id</code></li>
           <li><code>title</code></li>
           <li><code>item</code></li>
         </ul>
-        <code class="route">GET /element/{elementId}</code>
+        <code class="route">GET /api/v1/element/{id}</code>
         <p>Returns elements with matching element id.</p>
         <br>
-        <code class="route">GET /element/{elementId}/item</code>
+        <code class="route">GET /api/v1/element/{id}/item</code>
         <p>Returns all the items that are linked to the selected element by its id.</p>
-        <br>
       </li>
       <li>
         <h3>Item Routes</h3>
-        <code class="route">GET /item</code>
+        <code class="route">GET /api/v1/item</code>
         <p>Returns all items with the following informations :</p>
         <ul>
           <li><code>id</code></li>
           <li><code>title</code></li>
           <li><code>element</code></li>
         </ul>
-        <code class="route">GET /item/itemId}</code>
+        <code class="route">GET /api/v1/item/{id}</code>
         <p>Returns item with matching item id.</p>
+      </li>
+      <li>
+        <h3>Icon Routes</h3>
+        <code class="route">GET /images{icon}</code>
+        <p>Returns icon for the element or item with matching element or item title.</p>
+	<p>Warning : {icon} is the type of "/name.png".</p>
       </li>
     </ol>
 
